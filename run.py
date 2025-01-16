@@ -98,7 +98,7 @@ class Annotator:
         self.dynamic_label_titles = {}
         self.dynamic_label_buts = {}
         self.start_crop = 0
-        self.start_time = time.clock()
+        self.start_time = time.perf_counter()
         self.zoom = 120  # the larger the more zoomed in the timeline
         self.speed = 5
 
@@ -1129,8 +1129,8 @@ class Annotator:
 
         self.update_data_but.place(x=125, y=self.stats_label.winfo_height()-40, height=30, width=100)
 
-        if (time.clock()-self.start_time) > 60:
-            self.start_time = time.clock()
+        if (time.perf_counter()-self.start_time) > 60:
+            self.start_time = time.perf_counter()
             _, vid_id = os.path.split(self.in_file)
 
             with open(os.path.join(self.out_file, "autosaves", vid_id+'_A'+str(self.autosave)+'.json'), 'w') as f:
