@@ -110,3 +110,6 @@ The annotator generates .json files consisting of the following data structure f
 }
 ```
 
+### Note: 
+Some changes to make the code run: CHANGE time.clock() ->  time.perf_counter()
+
